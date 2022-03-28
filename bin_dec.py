@@ -1,24 +1,23 @@
-# Conversão de Binário para decimal
-num = input('Digite o número binário: ')
-resultado = []
-
-for i in range(len(num)):
-    if int(num[::-1][i]) == 1:
-        resultado += 2 ** i
-
-print(resultado)
-
-
-
-#Conversão de Decimal para binário
-
-num = int(input("Digite o número decimal: "))
-binario = ''
-
-while True:
-    binario += str(0 if num % 2 == 0 else 1)
-    num //= 2
-    if num == 0:
-        break
-
-print(binario[::-1])
+# Converter BINARIO E DECIMAL.
+#MENU para escolher conversao
+print('''Escolha a conversão:
+[1] DECIMAL p/ BINARIO
+[2] BINARIO p/ DECIMAL''')
+opcao = int (input('Sua opcao: '))
+#Conversao dec p/ bin
+if opcao == 1:
+n = int(input('Digite o valor que deseja converter: '))
+def conv_dec_bin (n):
+restos = ''
+while n > 0:
+restos+= str(n%2)
+n//=2
+return restos[::-1]
+print("Conversao em binario eh: " + str(conv_dec_bin(n)))
+#Conversao bin p/ dec 
+elif opcao == 2:
+x = str(input('Digite o valor que deseja converter: '))
+res = 0
+for i in range(len(x)):
+res += int(x[i]) * 2 ** (len(x) - i - 1)
+print('A conversao para DECIMAL eh: ', res)
